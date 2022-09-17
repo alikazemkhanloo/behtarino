@@ -47,7 +47,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
             <div>
               <ShareButton
                 text={product.title}
-                url={`http://localhost:3008/products/${product.id}`}
+                url={`https://localhost:3008/products/${product.id}`}
               />
             </div>
           </div>
