@@ -12,8 +12,8 @@ interface Props {
 const ProductPage: React.FC<Props> = ({ product }) => {
   return (
     <div className="py-20">
-      <div className="w-4/5 md:w-11/12 flex m-auto">
-        <div className="w-1/3 shadow-bc-green2 p-10 rounded-l-2xl bg-gradient-to-b from-bc-green1 to-bc-green2 shadow-[0px_20px_50px_-10px]">
+      <div className="w-11/12 flex flex-col sm:flex-row m-auto">
+        <div className="w-full sm:w-60 md:w-1/3 flex-shrink-0 shadow-bc-green2 p-10 rounded-t-2xl sm:rounded-l-2xl sm:rounded-r-none bg-gradient-to-b from-bc-green1 to-bc-green2 shadow-[0px_20px_50px_-10px]">
           <div className="relative w-full pt-full">
             <div className="absolute top-0 left-0 w-full h-full">
               <Image
@@ -25,17 +25,17 @@ const ProductPage: React.FC<Props> = ({ product }) => {
             </div>
           </div>
         </div>
-        <div className="w-2/3 bg-white  shadow-[10px_20px_50px_-10px] shadow-gray-400 p-10 rounded-r-2xl">
-          <div className="flex justify-between">
+        <div className="w-full sm:w-2/3 bg-white  shadow-[10px_20px_50px_-10px] shadow-gray-400 p-10 rounded-b-2xl sm:rounded-r-2xl sm:rounded-l-none">
+          <div className="flex flex-col lg:flex-row justify-between">
             <h1 className="uppercase title">{product.title}</h1>
             <div className="flex-shrink-0 mt-4">
               <Star value={product.rating.rate} />
             </div>
           </div>
-          <div className=" mt-4 font-semibold text-3xl text-bc-accent1">
+          <div className="mt-4 font-semibold text-3xl text-bc-accent1">
             ${product.price}
           </div>
-          <div className="uppercase subtitle mt-16">Description</div>
+          <div className="uppercase subtitle mt-16 mb-4">Description</div>
           <div className="text-gray-500">{product.description}</div>
           <div className="flex mt-10 justify-between items-center">
             <Button
