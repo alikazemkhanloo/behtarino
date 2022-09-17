@@ -12,7 +12,7 @@ const ShareButton: React.FC<Props> = ({ url, text }) => {
       try {
         await navigator.share({ text: text || url, url });
       } catch (e) {
-        toast.error("Not shared");
+        // toast.error("Not shared");
       }
     } else if (navigator.clipboard) {
       navigator.clipboard.writeText(url);
