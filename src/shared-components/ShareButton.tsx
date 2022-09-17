@@ -1,15 +1,22 @@
+import { toast } from "react-toastify";
 import ShareIcon from "../svgs/share-alt.svg";
 
 interface Props {
-  url: string;
+  url?: string;
+  text?: string;
 }
 
-const ShareButton: React.FC<Props> = ({ url }) => {
-  const share = () => {
+const ShareButton: React.FC<Props> = ({ url, text }) => {
+  const share = async () => {
     if (navigator.share) {
-      navigator.share({ text: url, url });
+      try {
+        await navigator.share({ text: text || url, url });
+      } catch (e) {
+        toast.error("Not shared");
+      }
     } else if (navigator.clipboard) {
       navigator.clipboard.writeText(url);
+      toast.success("URL copied to clipboard");
     }
   };
   return (
