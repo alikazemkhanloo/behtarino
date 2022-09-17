@@ -25,14 +25,16 @@ const ProductPage: React.FC<Props> = ({ product }) => {
             </div>
           </div>
         </div>
-        <div className="w-2/3 bg-white  shadow-[0px_20px_50px_-10px] shadow-gray-400 p-10 rounded-r-2xl">
+        <div className="w-2/3 bg-white  shadow-[10px_20px_50px_-10px] shadow-gray-400 p-10 rounded-r-2xl">
           <div className="flex justify-between">
             <h1 className="uppercase title">{product.title}</h1>
             <div className="flex-shrink-0 mt-4">
               <Star value={product.rating.rate} />
             </div>
           </div>
-          <div className=" mt-4 font-semibold text-3xl">${product.price}</div>
+          <div className=" mt-4 font-semibold text-3xl text-bc-accent1">
+            ${product.price}
+          </div>
           <div className="uppercase subtitle mt-16">Description</div>
           <div className="text-gray-500">{product.description}</div>
           <div className="flex mt-10 justify-between items-center">
