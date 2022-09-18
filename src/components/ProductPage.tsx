@@ -14,12 +14,25 @@ interface Props {
 }
 
 const ProductPage: React.FC<Props> = ({ product }) => {
-  const [color, setColor] = useState("red");
   const sizes = [
+    { title: "UK 7", value: "uk7" },
     { title: "UK 8", value: "uk8" },
     { title: "UK 9", value: "uk9" },
+    { title: "UK 10", value: "uk10" },
+    { title: "UK 11", value: "uk11" },
   ];
+
+  const quantities = [
+    { title: "1", value: "1" },
+    { title: "2", value: "2" },
+    { title: "3", value: "3" },
+  ];
+
+  const colors = ["red", "blue", "green", "rebeccapurple"];
+
+  const [color, setColor] = useState(colors[0]);
   const [size, setSize] = useState(sizes[0]);
+  const [qty, setQty] = useState(quantities[0]);
 
   return (
     <div className="py-20">
@@ -50,7 +63,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
           <div className="text-gray-500">{product.description}</div>
           <div className="mt-4 flex">
             <ColorSelector
-              colors={["red", "blue", "green", "rebeccapurple"]}
+              colors={colors}
               value={color}
               onChange={(c) => setColor(c)}
             />
@@ -60,6 +73,13 @@ const ProductPage: React.FC<Props> = ({ product }) => {
               title="Size"
               value={size}
               options={sizes}
+            />
+            <VLine />
+            <Dropdown
+              onChange={(q) => setQty(q)}
+              title="Qty"
+              value={qty}
+              options={quantities}
             />
           </div>
           <div className="flex mt-10 justify-between items-center">

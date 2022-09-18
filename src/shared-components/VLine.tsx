@@ -6,7 +6,7 @@ interface Props {
 }
 
 const VLine: React.FC<Props> = ({ className }) => {
-  return <div className={clsx(className, "border-r-2 mx-2 border-gray-300")} />;
+  return <div className={clsx(className, "border-r-2 mx-8 border-gray-300")} />;
 };
 
 export default VLine;
