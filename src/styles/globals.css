@@ -173,7 +173,7 @@
 
 @layer base {
   .title {
-    @apply font-semibold text-5xl
+    @apply font-semibold text-3xl lg:text-5xl
   }
   .subtitle {
     @apply font-semibold text-xl
