@@ -8,7 +8,10 @@ import ColorSelector from "../shared-components/ColorSelector";
 import { useState } from "react";
 import VLine from "../shared-components/VLine";
 import Dropdown from "../shared-components/Dropdown";
-
+import { toast } from "react-toastify";
+import clsx from "clsx";
+import Dots from "../shared-components/Dots";
+import NikeLogo from "../svgs/nike.svg";
 interface Props {
   product: Product;
 }
@@ -34,20 +37,39 @@ const ProductPage: React.FC<Props> = ({ product }) => {
   const [size, setSize] = useState(sizes[0]);
   const [qty, setQty] = useState(quantities[0]);
 
+  const imgs = [product.image, "https://picsum.photos/300/300"];
+  const [imgIndex, setimgIndex] = useState(0);
   return (
     <div className="py-20">
       <div className="w-3/4 max-w-6xl flex flex-col sm:flex-row m-auto">
-        <div className="w-full flex justify-center flex-col sm:w-60 md:w-1/3 flex-shrink-0 shadow-bc-green2 py-8 rounded-t-2xl sm:rounded-l-2xl sm:rounded-r-none bg-gradient-to-b from-bc-green1 to-bc-green2 shadow-[0px_20px_50px_-10px]">
+        <div className="w-full flex justify-between items-center flex-col sm:w-60 md:w-1/3 flex-shrink-0 shadow-bc-green2 py-8 rounded-t-2xl sm:rounded-l-2xl sm:rounded-r-none bg-gradient-to-b from-bc-green1 to-bc-green2 shadow-[0px_20px_50px_-10px]">
+          <NikeLogo className="w-10 h-10 fill-white" />
           <div className="relative w-full pt-full">
-            <div className="absolute top-0 -left-8 md:-left-20 w-full h-full shadow-2xl">
-              <Image
-                layout="fill"
-                src={product.image}
-                width="100%"
-                height={"100%"}
-              />
-            </div>
+            {imgs &&
+              imgs.map((img, index) => (
+                <div
+                  key={img}
+                  className={clsx(
+                    "absolute top-0 -left-8 md:-left-20 w-full h-full bg-white shadow-2xl rounded-lg overflow-hidden duration-500 transition-opacity",
+                    index === imgIndex ? "opacity-100" : "opacity-0"
+                  )}
+                >
+                  <Image
+                    layout="fill"
+                    objectFit="contain"
+                    src={img}
+                    width="100%"
+                    height={"100%"}
+                  />
+                </div>
+              ))}
           </div>
+          <Dots
+            className="mt-4"
+            total={imgs.length}
+            current={imgIndex}
+            onChange={(i) => setimgIndex(i)}
+          />
         </div>
         <div className="w-full sm:w-2/3 bg-white  shadow-[10px_20px_50px_-10px] shadow-gray-400 p-10 rounded-b-2xl sm:rounded-r-2xl sm:rounded-l-none">
           <div className="flex flex-col lg:flex-row justify-between">
