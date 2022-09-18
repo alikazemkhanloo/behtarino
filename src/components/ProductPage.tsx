@@ -39,7 +39,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
       <div className="w-3/4 max-w-6xl flex flex-col sm:flex-row m-auto">
         <div className="w-full flex justify-center flex-col sm:w-60 md:w-1/3 flex-shrink-0 shadow-bc-green2 py-8 rounded-t-2xl sm:rounded-l-2xl sm:rounded-r-none bg-gradient-to-b from-bc-green1 to-bc-green2 shadow-[0px_20px_50px_-10px]">
           <div className="relative w-full pt-full">
-            <div className="absolute top-0 -left-20 w-full h-full shadow-2xl">
+            <div className="absolute top-0 -left-8 md:-left-20 w-full h-full shadow-2xl">
               <Image
                 layout="fill"
                 src={product.image}
@@ -85,14 +85,15 @@ const ProductPage: React.FC<Props> = ({ product }) => {
               options={quantities}
             />
           </div>
-          <div className="flex mt-10 justify-between items-center">
+          <div className="flex justify-between items-center flex-wrap">
             <Button
+              className="mt-10"
               component="span"
               icon={<CartIcon className="w-5 h-5 fill-white" />}
             >
               Add to cart
             </Button>
-            <div>
+            <div className="mt-10">
               <ShareButton
                 text={product.title}
                 url={`https://localhost:3008/products/${product.id}`}
