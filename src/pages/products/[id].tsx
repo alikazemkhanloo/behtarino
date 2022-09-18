@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo";
 import Head from "next/head";
 import Image from "next/image";
 import { useSelector } from "react-redux";
@@ -9,11 +10,7 @@ export default function ProductNextPage() {
   const { data: product } = useSelector((state: State) => state.product);
   return (
     <div>
-      <Head>
-        <title>{product.title}</title>
-        <meta name="description" content={product.description} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <NextSeo title={product.title} description={product.description} />
       <ProductPage product={product} />
     </div>
   );
