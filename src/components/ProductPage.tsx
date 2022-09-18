@@ -7,6 +7,7 @@ import ShareButton from "../shared-components/ShareButton";
 import ColorSelector from "../shared-components/ColorSelector";
 import { useState } from "react";
 import VLine from "../shared-components/VLine";
+import Dropdown from "../shared-components/Dropdown";
 
 interface Props {
   product: Product;
@@ -14,6 +15,12 @@ interface Props {
 
 const ProductPage: React.FC<Props> = ({ product }) => {
   const [color, setColor] = useState("red");
+  const sizes = [
+    { title: "UK 8", value: "uk8" },
+    { title: "UK 9", value: "uk9" },
+  ];
+  const [size, setSize] = useState(sizes[0]);
+
   return (
     <div className="py-20">
       <div className="w-3/4 max-w-6xl flex flex-col sm:flex-row m-auto">
@@ -48,6 +55,12 @@ const ProductPage: React.FC<Props> = ({ product }) => {
               onChange={(c) => setColor(c)}
             />
             <VLine />
+            <Dropdown
+              onChange={(option) => setSize(option)}
+              title="Size"
+              value={size}
+              options={sizes}
+            />
           </div>
           <div className="flex mt-10 justify-between items-center">
             <Button
