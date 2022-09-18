@@ -89,6 +89,11 @@ const ProductPage: React.FC<Props> = ({ product }) => {
             <Button
               className="mt-10"
               component="span"
+              onClick={() =>
+                toast.success(
+                  `Added to cart,  size:${size.title}, color:${color}, qty: ${qty.title}`
+                )
+              }
               icon={<CartIcon className="w-5 h-5 fill-white" />}
             >
               Add to cart
