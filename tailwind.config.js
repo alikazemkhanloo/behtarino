@@ -13,7 +13,11 @@ module.exports = {
           accent1: "#FE6040",
           accent2: "#ff4265",
           "accent1-50": "#ff426580",
+          text: "#565656",
         },
+      },
+      borderWidth: {
+        px: "1px",
       },
       fontFamily: {
         bebas: ["Bebas"],

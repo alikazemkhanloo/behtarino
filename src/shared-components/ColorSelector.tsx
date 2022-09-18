@@ -2,9 +2,9 @@ import clsx from "clsx";
 import React from "react";
 
 interface Props {
-  colors: string[];
-  value: string;
-  onChange(color: string): void;
+  colors: any[];
+  value: any;
+  onChange(color: any): void;
   className?: string;
 }
 
@@ -14,7 +14,6 @@ const ColorSelector: React.FC<Props> = ({
   onChange,
   className,
 }) => {
-  console.log("value, colors", value, colors);
   return (
     <div className={className}>
       <div className="subtitle">Color</div>
@@ -23,13 +22,13 @@ const ColorSelector: React.FC<Props> = ({
           <div
             onClick={() => onChange(color)}
             className={clsx(
-              "w-6 h-6 mx-2 mb-2 rounded-full transition-shadow duration-300 cursor-pointer ",
-              value === color && "ring-2 ring-offset-2"
+              "w-6 h-6 mx-2 mb-2 rounded-full transition-shadow duration-300 cursor-pointer border-px border-gray-200 ",
+              value?.value === color.value && "ring-2 ring-offset-2"
             )}
             style={{
               // @ts-ignore
-              "--tw-ring-color": color,
-              backgroundColor: color,
+              "--tw-ring-color": "#45caca",
+              backgroundColor: color.value,
             }}
           />
         ))}

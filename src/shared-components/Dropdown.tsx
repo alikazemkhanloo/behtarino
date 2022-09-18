@@ -23,11 +23,11 @@ const Dropdown: React.FC<Props> = (props) => {
     <div className={clsx("relative", className)}>
       <div className="subtitle">{title}</div>
       <div
-        className="cursor-pointer select-none subtitle text-gray-300 flex items-center whitespace-nowrap"
+        className="cursor-pointer select-none subtitle text-gray-400 flex items-center whitespace-nowrap"
         onClick={() => setOpen(!open)}
       >
         ({value?.title})
-        <ChevronDownIcon className="w-3 h-3 ml-2 fill-gray-300" />
+        <ChevronDownIcon className="w-3 h-3 ml-2 fill-gray-400" />
       </div>
 
       {/* backdrop */}

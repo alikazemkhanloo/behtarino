@@ -31,7 +31,14 @@ const ProductPage: React.FC<Props> = ({ product }) => {
     { title: "3", value: "3" },
   ];
 
-  const colors = ["red", "blue", "green", "rebeccapurple"];
+  const colors = [
+    { title: "Mint Green", value: "#45caca" },
+    { title: "Red", value: "red" },
+    { title: "Green", value: "green" },
+    { title: "Blue", value: "blue" },
+    { title: "Rebecca Purple", value: "rebeccapurple" },
+    { title: "White", value: "white" },
+  ];
 
   const [color, setColor] = useState(colors[0]);
   const [size, setSize] = useState(sizes[0]);
@@ -73,7 +80,12 @@ const ProductPage: React.FC<Props> = ({ product }) => {
         </div>
         <div className="w-full sm:w-2/3 bg-white  shadow-[10px_20px_50px_-10px] shadow-gray-400 p-10 rounded-b-2xl sm:rounded-r-2xl sm:rounded-l-none">
           <div className="flex flex-col lg:flex-row justify-between">
-            <h1 className="uppercase title">{product.title}</h1>
+            <div>
+              <h1 className="uppercase title">{product.title}</h1>
+              <div className="subtitle text-gray-400 uppercase italic">
+                {color.title}
+              </div>
+            </div>
             <div className="flex-shrink-0 mt-4">
               <Star value={product.rating.rate} />
             </div>
@@ -82,7 +94,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
             ${product.price}
           </div>
           <div className="uppercase subtitle mt-16 mb-4">Description</div>
-          <div className="text-gray-500">{product.description}</div>
+          <div className="text-gray-400">{product.description}</div>
           <div className="mt-4 flex flex-col lg:flex-row">
             <ColorSelector
               // className="mt-4 lg:mt-0"

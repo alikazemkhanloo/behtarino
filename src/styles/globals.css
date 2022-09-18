@@ -165,13 +165,16 @@
 
 @layer components {
   .button {
-    @apply  px-6 py-3 text-2xl uppercase shadow-[0px_10px_10px_-2px] active:shadow-[0px_5px_5px_0px] shadow-bc-accent1-50 active:shadow-bc-accent1-50
+    @apply  px-6 py-3 text-xl lg:text-2xl uppercase shadow-[0px_10px_10px_-2px] active:shadow-[0px_5px_5px_0px] shadow-bc-accent1-50 active:shadow-bc-accent1-50
     bg-gradient-to-b from-bc-accent1 to-bc-accent2 rounded-xl text-white font-semibold flex 
     items-center cursor-pointer select-none active:translate-y-0.5 transition-all 
   }
 }
 
 @layer base {
+  body{
+    @apply text-bc-text
+  }
   .title {
     @apply font-semibold text-3xl lg:text-5xl
   }
