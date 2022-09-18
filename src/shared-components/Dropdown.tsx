@@ -7,23 +7,27 @@ interface Props {
   value: any;
   options: any;
   onChange(value: any): void;
+  className?: string;
 }
 
-const Dropdown: React.FC<Props> = ({ title, value, options, onChange }) => {
+const Dropdown: React.FC<Props> = (props) => {
+  const { title, value, options, className, onChange } = props;
+
   const [open, setOpen] = useState(false);
   const onSelect = (o) => {
     setOpen(false);
     onChange(o);
   };
+
   return (
-    <div className="relative">
+    <div className={clsx("relative", className)}>
       <div className="subtitle">{title}</div>
       <div
-        className="cursor-pointer select-none subtitle text-gray-300 flex items-center"
+        className="cursor-pointer select-none subtitle text-gray-300 flex items-center whitespace-nowrap"
         onClick={() => setOpen(!open)}
       >
         ({value?.title})
-        <ChevronDownIcon className="w-4 h-4 ml-2 fill-gray-300" />
+        <ChevronDownIcon className="w-3 h-3 ml-2 fill-gray-300" />
       </div>
 
       {/* backdrop */}

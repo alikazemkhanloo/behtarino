@@ -6,7 +6,7 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
   return (
     <ToastProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </ToastProvider>
   );
 }

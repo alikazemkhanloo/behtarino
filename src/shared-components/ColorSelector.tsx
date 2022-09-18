@@ -5,12 +5,18 @@ interface Props {
   colors: string[];
   value: string;
   onChange(color: string): void;
+  className?: string;
 }
 
-const ColorSelector: React.FC<Props> = ({ colors, value, onChange }) => {
+const ColorSelector: React.FC<Props> = ({
+  colors,
+  value,
+  onChange,
+  className,
+}) => {
   console.log("value, colors", value, colors);
   return (
-    <div>
+    <div className={className}>
       <div className="subtitle">Color</div>
       <div className="flex mt-2 flex-wrap">
         {colors.map((color) => (

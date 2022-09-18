@@ -61,14 +61,16 @@ const ProductPage: React.FC<Props> = ({ product }) => {
           </div>
           <div className="uppercase subtitle mt-16 mb-4">Description</div>
           <div className="text-gray-500">{product.description}</div>
-          <div className="mt-4 flex">
+          <div className="mt-4 flex flex-col lg:flex-row">
             <ColorSelector
+              // className="mt-4 lg:mt-0"
               colors={colors}
               value={color}
               onChange={(c) => setColor(c)}
             />
             <VLine />
             <Dropdown
+              // className="mt-4 lg:mt-0"
               onChange={(option) => setSize(option)}
               title="Size"
               value={size}
@@ -76,6 +78,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
             />
             <VLine />
             <Dropdown
+              // className="mt-4 lg:mt-0"
               onChange={(q) => setQty(q)}
               title="Qty"
               value={qty}
