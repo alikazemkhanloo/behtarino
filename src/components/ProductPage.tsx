@@ -82,7 +82,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
           <div className="flex flex-col lg:flex-row justify-between">
             <div>
               <h1 className="uppercase title">{product.title}</h1>
-              <div className="subtitle text-gray-400 uppercase italic">
+              <div className="subtitle mt-2 text-gray-400 uppercase italic">
                 {color.title}
               </div>
             </div>
@@ -90,7 +90,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
               <Star value={product.rating.rate} />
             </div>
           </div>
-          <div className="mt-4 font-semibold text-2xl lg:text-3xl text-bc-accent1">
+          <div className="mt-2 font-semibold text-2xl lg:text-3xl text-bc-accent1">
             ${product.price}
           </div>
           <div className="uppercase subtitle mt-16 mb-4">Description</div>
